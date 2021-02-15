@@ -1,6 +1,6 @@
 <?php namespace App\Database\Seeds;
   
-class UserSeeder extends \CodeIgniter\Database\Seeder
+class LevelSeeder extends \CodeIgniter\Database\Seeder
 {
     public function run()
     {
