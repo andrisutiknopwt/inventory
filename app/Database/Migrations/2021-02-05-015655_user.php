@@ -27,6 +27,10 @@ class User extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '200',
 			],
+			'level' => [
+				'type' => 'INT',
+				'constraint' => '2',
+			],
 			'avatar' => [
 				'type' => 'VARCHAR',
 				'constraint' => '200',

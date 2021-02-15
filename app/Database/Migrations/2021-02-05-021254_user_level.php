@@ -22,7 +22,7 @@ class UserLevel extends Migration
 				'constraint' => '1',
 			],
 		]);
-		$this->forge->addKey('id', true);
+		$this->forge->addKey('id_level', true);
 		$this->forge->createTable('user_level');
 	}
 
