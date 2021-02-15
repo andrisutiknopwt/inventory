@@ -26,6 +26,6 @@ class LevelSeeder extends \CodeIgniter\Database\Seeder
                 'status'  =>  1
             ],
         ];
-        $this->db->table('users')->insertBatch($data);
+        $this->db->table('user_level')->insertBatch($data);
     }
 } 
