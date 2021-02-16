@@ -54,14 +54,14 @@
                             <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children active dropdown">
+                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children dropdown">
+                    <li class="menu-item-has-children active dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
@@ -214,7 +214,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
 
-                            <a class="nav-link" href="Home/logout"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
                     </div>
                 </div>
@@ -237,8 +237,8 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
-                                    <li><a href="#">Table</a></li>
-                                    <li class="active">Basic table</li>
+                                    <li><a href="#">Forms</a></li>
+                                    <li class="active">Basic</li>
                                 </ol>
                             </div>
                         </div>
@@ -249,67 +249,121 @@
 
         <div class="content">
             <div class="animated fadeIn">
+
+
                 <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Custom Table</strong>
-                            </div>
-                            <div class="table-stats order-table ov-h">
-                                <table class="table ">
-                                    <thead>
-                                        <tr>
-                                            <th class="serial">No</th>
-                                            <th>Nama</th>
-                                            <th>Username</th>
-                                            <th>password</th>
-                                            <th>Level</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php 
-                                    $no=1;
-                                    foreach($user as $row):?>
-                                        <tr>
-                                            <td class="serial"><?=$no++; ?>.</td>
-                                            <td class="avatar"><?= $row->nama?>    </td>
-                                            <td> <?= $row->user_name?> </td>
-                                            <td>  <span class="name"><?= $row->password?></span> </td>
-                                            <td> <span class="product"><?=$row->level_name?></span> </td>
-                                            <td><a href="Dashboard/edit/<?=$row->id;?>" class="btn btn-warning">edit</a> <a href="dashboard/delete/<?=$row->id?>"  class="btn btn-danger"> delete</a> </td>
-                                        </tr>
-                                    
-                                        <?php endforeach ?>
-                                     
-                                    </tbody>
-                                </table>
-                            </div> <!-- /.table-stats -->
-                        </div>
+                    <div class="col-lg-6">
+       
+
+                    </div><!--/.col-->
+
+                    <div class="col-lg-6">
+
                     </div>
 
-</div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Basic Form</strong> Elements <?= print_r($editData);?>
+                            </div>
+                            <div class="card-body card-block">
+                                <form action="/Dashboard/updateDatauser" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="nama" placeholder="nama" class="form-control" value="<?php echo $editData['nama'];?>"><small class="form-text text-muted">This is a help text</small></div>
+                                    </div>
+                                    <input type="hidden" value="<?= $editData['id'];?>" name="id">
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="email-input" class=" form-control-label">Username</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="email-input" name="username" placeholder="username" class="form-control" value="<?php echo $editData['user_name'];?>"><small class="help-block form-text">Please enter your email</small></div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="password-input" class=" form-control-label">Password</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="password-input" name="pass" placeholder="Password" class="form-control" value="<?php echo $editData['password'];?>"><small class="help-block form-text">Please enter a complex password</small></div>
+                                    </div>
+
+                                    <div class="card-footer">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                </button>
+                                <button type="reset" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-ban"></i> Reset
+                                </button>
+                            </div>
+                                    </form>
+                            </div>
+                           
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-6">
+  
+                </div>
+
+                <div class="col-lg-6">
+   
+                </div>
+
+                <div class="col-lg-6">
+                    
+                </div>
+
+                <div class="col-lg-6">
+                    
+                </div>
+
+                <div class="col-lg-6">
+                   
+                </div>
+
+                <div class="col-lg-6">
+                    
+                </div>
+
+                <div class="col-lg-6">
+              
+                </div>
+
+                <div class="col-lg-6">
+         
+                </div>
+
+                <div class="col-lg-6">
+  
+                </div>
+
+                <div class="col-lg-6">
+
+                </div>
 
             </div>
 
+
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+    <div class="clearfix"></div>
+
+    <footer class="site-footer">
+        <div class="footer-inner bg-white">
+            <div class="row">
+                <div class="col-sm-6">
+                    Copyright &copy; 2018 Ela Admin
+                </div>
+                <div class="col-sm-6 text-right">
+                    Designed by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+            </div>
         </div>
-    </div><!-- .animated -->
-</div><!-- .content -->
-
-<div class="clearfix"></div>
-
-<footer class="site-footer">
-    <div class="footer-inner bg-white">
-        <div class="row">
-            <div class="col-sm-6">
-                Copyright &copy; 2018 Ela Admin
-            </div>
-            <div class="col-sm-6 text-right">
-                Designed by <a href="https://colorlib.com">Colorlib</a>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </div><!-- /#right-panel -->
 

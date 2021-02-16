@@ -24,7 +24,7 @@ class Register extends BaseController
 			'password'=>$this->request->getPost('pass'),
 		);
 		$model->simpanData($data);
-		return redirect()->to('/Home/listUser');
+		return redirect()->to('/Dashboard');
 	}
 
 	public function list(){

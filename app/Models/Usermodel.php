@@ -6,3 +6,5 @@ class Usermodel extends Model{
     protected $table = 'users';
     protected $allowedFields = ['nama','user_name','password','level'];
 }
+
+

@@ -16,12 +16,41 @@ class Level extends Model
     }
 
     public function getUser(){
-        // $builder = $this->db->table('users');
-        // return $builder->get();
         $builder = $this->db->table('users');
         $builder->select('*');
         $builder->join('user_level', 'id_level = level','left');
         return $builder->get();
+    }
+
+    public function getData($id){
+        $builder = $this->db->table('users');
+        return $builder->getWhere(['id' => $id]);
+    }
+
+/*
+    public function update($data, $id){
+        
+        $query = $this->db->table('users')->update($data, array('id' => $id));
+        return $query;
+
+        
+        $builder = $this->db->table('users');
+        $builder->where('id', $id);
+        $builder->update($data);
+    
+        
+    }*/
+    public function updateData($data, $id)
+    {
+        $query = $this->db->table('users')->update($data, array('id' => $id));
+        return $query;
+    }
+
+
+    public function delete_user($id)
+    {
+        $query = $this->db->table('users')->delete(array('id' => $id));
+        return $query;
     }
 
   
