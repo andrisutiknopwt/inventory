@@ -37,14 +37,14 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form>
+                    <form action="Home/login" method="post">
                         <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
+                            <label>username</label>
+                            <input type="text" class="form-control" placeholder="username" name="username">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name="pass">
                         </div>
                         <div class="checkbox">
                             <label>

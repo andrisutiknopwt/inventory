@@ -32,20 +32,22 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action=""  method="post">
+                    <form action="/Register/register"  method="post">
                     <div class="form-group">
-                            <label>User Name</label>
-                            <input type="email" class="form-control" name="name" placeholder=" Name">
+                            <label> Nama</label>
+                            <input type="text" class="form-control" name="nama" placeholder=" Name" setfocus>
                         </div>
                         <div class="form-group">
                             <label>User Name</label>
-                            <input type="email" class="form-control" name="username" placeholder="User Name">
+                            <input type="text" class="form-control" name="username" placeholder="User Name">
                         </div>
                         <div class="form-group">
                             <label>Level</label>
-                            <select class="form-control">
-                            <option value="">user</option>
-                            <option value="">user</option>
+                            <select class="form-control" name="id_level" required>
+                            <option value="">silahkan pilih level anda</option>
+                            <?php foreach($level as $row):?>
+                                <option value="<?= $row->id_level;?>"><?= $row->level_name?></option>
+                            <?php endforeach;?>
                             </select>
                         </div>
                         <div class="form-group">
