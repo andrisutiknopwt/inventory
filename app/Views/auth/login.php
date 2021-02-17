@@ -36,6 +36,18 @@
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
                 </div>
+
+                <?php
+                $pesan =session()->getFlashdata('msg');
+                if(isset($pesan)){?>
+                    <div class="alert alert-success" role="alert">
+                        <?=$pesan;?>
+                    </div>
+
+                <?php
+                }
+                ?>
+                
                 <div class="login-form">
                     <form action="Home/login" method="post">
                         <div class="form-group">
