@@ -264,7 +264,7 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Basic Form</strong> Elements <?= print_r($editData);?>
+                                <strong>Basic Form</strong> Elements
                             </div>
                             <div class="card-body card-block">
                                 <form action="/Dashboard/updateDatauser" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -280,6 +280,13 @@
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="password-input" class=" form-control-label">Password</label></div>
                                         <div class="col-12 col-md-9"><input type="text" id="password-input" name="pass" placeholder="Password" class="form-control" value="<?php echo $editData['password'];?>"><small class="help-block form-text">Please enter a complex password</small></div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="password-input" class=" form-control-label">Profil</label></div>
+                                        <div class="col col-md-3"><img src="/gambar/<?= $editData['avatar'];?>" height="100"></div>
+                                        <input type="hidden" name="foto_lama" value="<?= $editData['avatar']?>">
+                                        <div class="col-12 col-md-6"><input type="file" id="password-input" name="foto" placeholder="" class="form-control" value="<?php echo $editData['password'];?>"><small class="help-block form-text">Please enter a complex password</small></div>
                                     </div>
 
                                     <div class="card-footer">

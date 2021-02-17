@@ -32,7 +32,7 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="/Register/register"  method="post">
+                    <form action="/Register/register"  method="post" enctype="multipart/form-data">
                     <div class="form-group">
                             <label> Nama</label>
                             <input type="text" class="form-control" name="nama" placeholder=" Name" setfocus>
@@ -53,6 +53,10 @@
                         <div class="form-group">
                             <label>Password</label>
                             <input type="password" class="form-control" name="pass" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label>foto profil</label>
+                            <input type="file" class="form-control" name="foto" placeholder="">
                         </div>
                         <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
                         <div class="social-login-content">
