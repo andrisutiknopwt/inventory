@@ -250,7 +250,7 @@
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Custom Table</strong>
@@ -264,6 +264,7 @@
                                             <th>Username</th>
                                             <th>password</th>
                                             <th>Level</th>
+                                            <th>Ikon</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -277,7 +278,8 @@
                                             <td> <?= $row->user_name?> </td>
                                             <td>  <span class="name"><?= $row->password?></span> </td>
                                             <td> <span class="product"><?=$row->level_name?></span> </td>
-                                            <td><a href="Dashboard/edit/<?=$row->id;?>" class="btn btn-warning">edit</a> <a href="dashboard/delete/<?=$row->id?>"  class="btn btn-danger"> delete</a> </td>
+                                            <td> <img src="/gambar/<?= $row->avatar ?>"  class="img-responsive"> </td>
+                                            <td><a href="/Dashboard/edit/<?=$row->id;?>" class="btn btn-warning">edit</a> <a href="dashboard/delete/<?=$row->id?>"  class="btn btn-danger"> delete</a> </td>
                                         </tr>
                                     
                                         <?php endforeach ?>

@@ -17,11 +17,16 @@ class Register extends BaseController
 
 	public function register(){
 		$model = new level();
+		$foto = $this->request->getFile('foto');
+		$namafoto = $foto->getRandomName();
+		$foto->move('gambar',$namafoto);
+
 		$data = array(
 			'nama' =>$this->request->getPost('nama'),
 			'user_name' =>$this->request->getPost('username'),
 			'level'=>$this->request->getPost('id_level'),
 			'password'=>$this->request->getPost('pass'),
+			'avatar'=>$namafoto,
 		);
 		$model->simpanData($data);
 		return redirect()->to('/Dashboard');

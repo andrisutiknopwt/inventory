@@ -21,10 +21,24 @@ class Dashboard extends BaseController
     function updateDatauser(){
         $model = new Level();
         $id = $this->request->getPost('id');
+        $foto = $this->request->getFile('foto');
+
+        if($foto->getError()==4){
+            $namafoto = $this->request->getPost('foto_lama');
+        }else{
+            $namafoto =$foto->getRandomName();
+            $foto->move('gambar',$namafoto);
+            $foto_lama = $this->request->getPost('foto_lama');
+            unlink('gambar/'.$this->request->getPost('foto_lama'));
+        }
+
+        
+
         $data = [
             'nama' => $this->request->getPost('nama'),
             'user_name'  => $this->request->getPost('username'),
             'password'  => $this->request->getPost('pass'),
+            'avatar'=>$namafoto,
         ]; 
 
          $ubah=$model->updateData($data, $id);
@@ -33,6 +47,8 @@ class Dashboard extends BaseController
          }else{
             echo 'gagal update';
          }
+
+
     }
 
     public function delete($id)
