@@ -55,6 +55,9 @@ class Dashboard extends BaseController
     {
         $model = new Level();
         $hapus = $model->delete_user($id);
+        $namafoto = $model->getData($id);
+        unlink('gambar/'.$this->request->getPost('foto_lama'));
+
         if($hapus){
             return redirect()->to('/Dashboard');
         }else{
