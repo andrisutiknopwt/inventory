@@ -33,6 +33,7 @@
                 </div>
                 <div class="login-form">
                     <form action="/Register/register"  method="post" enctype="multipart/form-data">
+                    <?=csrf_field();?>
                     <div class="form-group">
                             <label> Nama</label>
                             <input type="text" class="form-control" name="nama" placeholder=" Name" setfocus>

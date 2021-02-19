@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\Level;
+use App\Models\Usermodel;
+
 class Dashboard extends BaseController
 {
 
@@ -19,7 +21,7 @@ class Dashboard extends BaseController
     }
 
     function updateDatauser(){
-        $model = new Level();
+        $model = new Usermodel();
         $id = $this->request->getPost('id');
         $foto = $this->request->getFile('foto');
 
@@ -35,13 +37,14 @@ class Dashboard extends BaseController
         
 
         $data = [
+            'id'   =>$id,
             'nama' => $this->request->getPost('nama'),
             'user_name'  => $this->request->getPost('username'),
             'password'  => $this->request->getPost('pass'),
             'avatar'=>$namafoto,
         ]; 
 
-         $ubah=$model->updateData($data, $id);
+         $ubah=$model->save($data);
          if($ubah){
             return redirect()->to('/Dashboard');
          }else{
@@ -53,10 +56,10 @@ class Dashboard extends BaseController
 
     public function delete($id)
     {
-        $model = new Level();
-        $hapus = $model->delete_user($id);
-        $namafoto = $model->getData($id);
-        unlink('gambar/'.$this->request->getPost('foto_lama'));
+        $model = new Usermodel();
+        $hapus = $model->delete($id);
+        // $namafoto = $model->getData($id);
+        // unlink('gambar/'.$this->request->getPost('foto_lama'));
 
         if($hapus){
             return redirect()->to('/Dashboard');
